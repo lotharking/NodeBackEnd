@@ -1,4 +1,5 @@
 import { Controller, Post , Body, Get, Param, Put, Delete} from '@nestjs/common';
+import { CrearLibroDto } from './dto/crear-libros.dto';
 
 @Controller('libros')
 export class LibrosController {
@@ -13,18 +14,18 @@ export class LibrosController {
     }
 
     @Post()
-    createLibro(@Body() infoLibro): string {
-        return `este libro tiene ${infoLibro.numpags} paginas`;
+    createLibro(@Body() infoLibro: CrearLibroDto): string {
+        return `este libro tiene ${infoLibro.pags} paginas`;
     }
 
     @Put(':id')
-    editarLibro(@Param() params) {
-        return `El libro ${params.id} se actualizo`;
+    editarLibro(@Param() id: number, @Body() ActualizarLibro: CrearLibroDto): string {
+        return `El libro ${id} se actualizo`;
     }
 
     @Delete(':id')
-    eliminarLibro(@Param() params) {
-        return `El libro ${params.id} se elimino`;
+    eliminarLibro(@Param() id: number): string {
+        return `El libro ${id} se elimino`;
     }
 
 }
