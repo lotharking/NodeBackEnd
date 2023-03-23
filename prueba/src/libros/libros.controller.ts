@@ -8,8 +8,8 @@ export class LibrosController {
     }
 
     @Get(':id')
-    infoLibros(@Param() params): string{
-        return `Informacion del libro numero #${params.id}`;
+    infoLibros(@Param() id: number): string{
+        return `Informacion del libro numero #${id}`;
     }
 
     @Post()
