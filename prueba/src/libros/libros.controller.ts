@@ -1,5 +1,4 @@
-import { Controller } from '@nestjs/common';
-import { Get, Param } from '@nestjs/common/decorators';
+import { Controller, Post , Body, Get, Param, Put, Delete} from '@nestjs/common';
 
 @Controller('libros')
 export class LibrosController {
@@ -11,6 +10,21 @@ export class LibrosController {
     @Get(':id')
     infoLibros(@Param() params): string{
         return `Informacion del libro numero #${params.id}`;
+    }
+
+    @Post()
+    createLibro(@Body() infoLibro): string {
+        return `este libro tiene ${infoLibro.numpags} paginas`;
+    }
+
+    @Put(':id')
+    editarLibro(@Param() params) {
+        return `El libro ${params.id} se actualizo`;
+    }
+
+    @Delete(':id')
+    eliminarLibro(@Param() params) {
+        return `El libro ${params.id} se elimino`;
     }
 
 }
