@@ -10,8 +10,9 @@ export class LibrosService {
     private findId(id: number): number {
         let indice: number;
         this.libros.forEach(function(Libro: Libro, index: number) {
-            if(Libro.libro_id === id)
+            if(Libro.libro_id === id){
                 indice=index;
+            }
         })
         return indice;
     }
@@ -47,9 +48,7 @@ export class LibrosService {
     /** editar libro */
     editarLibro(id: number, infoLibro: Libro): Libro {
         const indice = this.findId((id));
-        console.log(indice);
         this.libros.splice(indice, 1, infoLibro);
-        console.log(this.libros);
         return this.libros[indice];
     }
 

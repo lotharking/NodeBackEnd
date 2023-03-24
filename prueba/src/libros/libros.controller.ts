@@ -14,8 +14,8 @@ export class LibrosController {
     }
 
     @Get(':id')
-    infoLibros(@Param() id: string): Libro {
-        return this.librosService.infoLibro((parseInt(id)));
+    infoLibros(@Param() id: number): Libro {
+        return this.librosService.infoLibro(parseInt(id['id']));
     }
 
     @Post()
@@ -25,12 +25,12 @@ export class LibrosController {
 
     @Put(':id')
     editarLibro(@Param() id: string, @Body() ActualizarLibro: Libro) {
-        return this.librosService.editarLibro(parseInt(id), ActualizarLibro);
+        return this.librosService.editarLibro(parseInt(id['id']), ActualizarLibro);
     }
 
     @Delete(':id')
     eliminarLibro(@Param() id: string) {
-        return this.librosService.eliminarLibro(parseInt(id));
+        return this.librosService.eliminarLibro(parseInt(id['id']));
     }
 
 }
