@@ -14,8 +14,8 @@ export class LibrosController {
     }
 
     @Get(':id')
-    infoLibros(@Param() id: number) {
-        // return this.librosService.ListarTodo(id);
+    infoLibros(@Param() id: string): Libro {
+        return this.librosService.infoLibro(parseInt(id));
     }
 
     @Post()
