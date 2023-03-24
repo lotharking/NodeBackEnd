@@ -11,7 +11,7 @@ export class LibrosService {
         let indice: number;
         this.libros.forEach(function(Libro: Libro, index: number) {
             if(Libro.libro_id === id)
-            indice=index;
+                indice=index;
         })
         return indice;
     }
@@ -46,9 +46,17 @@ export class LibrosService {
 
     /** editar libro */
     editarLibro(id: number, infoLibro: Libro): Libro {
-        const indice = this.findId(id);
+        const indice = this.findId((id));
+        console.log(indice);
         this.libros.splice(indice, 1, infoLibro);
+        console.log(this.libros);
         return this.libros[indice];
+    }
+
+    /** Borrado */
+    eliminarLibro(id: number) {
+        const indice = this.findId(id);
+        this.libros.splice(indice,1);
     }
 
 }

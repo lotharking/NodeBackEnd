@@ -15,7 +15,7 @@ export class LibrosController {
 
     @Get(':id')
     infoLibros(@Param() id: string): Libro {
-        return this.librosService.infoLibro(parseInt(id));
+        return this.librosService.infoLibro((parseInt(id)));
     }
 
     @Post()
@@ -24,13 +24,13 @@ export class LibrosController {
     }
 
     @Put(':id')
-    editarLibro(@Param() id: number, @Body() ActualizarLibro: CrearLibroDto): string {
-        return `El libro ${id} se actualizo`;
+    editarLibro(@Param() id: string, @Body() ActualizarLibro: Libro) {
+        return this.librosService.editarLibro(parseInt(id), ActualizarLibro);
     }
 
     @Delete(':id')
-    eliminarLibro(@Param() id: number): string {
-        return `El libro ${id} se elimino`;
+    eliminarLibro(@Param() id: string) {
+        return this.librosService.eliminarLibro(parseInt(id));
     }
 
 }
