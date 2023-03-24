@@ -1,21 +1,26 @@
 import { Controller, Post , Body, Get, Param, Put, Delete} from '@nestjs/common';
 import { CrearLibroDto } from './dto/crear-libros.dto';
+import { Libro } from './interfaces/libros.interfaces';
+import { LibrosService } from './libros.service';
 
 @Controller('libros')
 export class LibrosController {
+
+    constructor(private librosService: LibrosService) {}
+
     @Get()
-    buscarLibros(): string {
-        return 'aqui mostrara los libros'
+    buscarLibros(): Libro[] {
+        return this.librosService.ListarTodo();
     }
 
     @Get(':id')
-    infoLibros(@Param() id: number): string{
-        return `Informacion del libro numero #${id}`;
+    infoLibros(@Param() id: number) {
+        // return this.librosService.ListarTodo(id);
     }
 
     @Post()
-    createLibro(@Body() infoLibro: CrearLibroDto): string {
-        return `este libro tiene ${infoLibro.pags} paginas`;
+    createLibro(@Body() infoLibro: CrearLibroDto) {
+        return this.librosService.crearLibro(infoLibro);
     }
 
     @Put(':id')
