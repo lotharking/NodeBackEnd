@@ -19,3 +19,4 @@ export class Pokemon {
 
 export const charmander = new Pokemon(4, 'Charmander');
 
+console.log( charmander.getmoves() );
