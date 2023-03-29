@@ -4,3 +4,5 @@ The principle of substitution is based on being able to replace the method and t
 
 # Decorator
 Is a function that allows to overwrite the class
+
+#
