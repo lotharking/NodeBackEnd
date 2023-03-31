@@ -8,4 +8,3 @@ Is a function that allows to overwrite the class
 # .eslintrc.js and .prettierrc
 Nest file for good practices
 
-# Dist
