@@ -22,24 +22,25 @@ export class PokemonController {
   create(@Body() createPokemonDto: CreatePokemonDto) {
     return this.pokemonService.create(createPokemonDto);
   }
-
+  
   @Get()
   findAll() {
     return this.pokemonService.findAll();
   }
-
+  
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.pokemonService.findOne( id );
   }
-
+  
   @Patch(':id')
+  @UseFilters(MongoExceptionFilter)
   update(@Param('id') id: string, @Body() updatePokemonDto: UpdatePokemonDto) {
-    return this.pokemonService.update(+id, updatePokemonDto);
+    return this.pokemonService.update(id, updatePokemonDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.pokemonService.remove(+id);
+    return this.pokemonService.remove(id);
   }
 }
