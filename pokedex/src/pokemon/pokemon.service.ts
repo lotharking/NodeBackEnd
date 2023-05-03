@@ -4,7 +4,6 @@ import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Model } from 'mongoose';
 import { Pokemon } from './entities/pokemon.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { json } from 'stream/consumers';
 
 @Injectable()
 export class PokemonService {
@@ -24,8 +23,13 @@ export class PokemonService {
     return `This action returns all pokemon`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} pokemon`;
+  async findOne(id: string) {
+    let pokemon: Pokemon;
+
+    if( !isNaN(+id)){
+      pokemon = await this.pokemonModel.findOne({ no:id })
+    }
+    return pokemon;
   }
 
   update(id: number, updatePokemonDto: UpdatePokemonDto) {
