@@ -38,13 +38,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-  },
-  client: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Client',
-    },
-  ],
+  }
 });
 
 const User = mongoose.model('User', userSchema);
