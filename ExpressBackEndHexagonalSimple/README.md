@@ -108,21 +108,21 @@ La estructura de carpetas es la siguiente:
 - `GET /movies/:name`: Busca películas por nombre. Acepta parte del nombre, y no distingue entre mayúsculas y minúsculas.
   - Respuesta esperada:
 
-```
-[
-  {
-      "_id": "64c20899352fb622a58e3e0e",
-      "name": "Depredador",
-      "url": "https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fs3.abcstatics.com%2Fmedia%2Fpeliculas%2F000%2F002%2F624%2Fdepredador-1.jpg&nuevoancho=683&medio=abc",
-      "release_date": "1987-06-12T00:00:00.000Z",
-      "duration": "1h 47m",
-      "genre": "Science Fiction - Adventure",
-      "recommended_age": "12+",
-      "synopsis": "A group of mercenaries is hired by the CIA to rescue pilots who have been captured by the guerrillas in the Central American jungle.",
-      "__v": 0
-  }
-]
-```
+  ```
+  [
+    {
+        "_id": "64c20899352fb622a58e3e0e",
+        "name": "Depredador",
+        "url": "https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fs3.abcstatics.com%2Fmedia%2Fpeliculas%2F000%2F002%2F624%2Fdepredador-1.jpg&nuevoancho=683&medio=abc",
+        "release_date": "1987-06-12T00:00:00.000Z",
+        "duration": "1h 47m",
+        "genre": "Science Fiction - Adventure",
+        "recommended_age": "12+",
+        "synopsis": "A group of mercenaries is hired by the CIA to rescue pilots who have been captured by the guerrillas in the Central American jungle.",
+        "__v": 0
+    }
+  ]
+  ```
 
 - `POST /user`: Crea un nuevo usuario utilizando el siguiente payload:
 
