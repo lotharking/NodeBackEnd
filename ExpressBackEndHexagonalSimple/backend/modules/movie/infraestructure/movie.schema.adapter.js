@@ -14,7 +14,11 @@ const MovieSchemaAdapter = {
       });
   },
   getMovies: function () {
-    return MovieSchema.find();
+    try {
+      return MovieSchema.find();
+    } catch (error){
+      throw new Error("Error al leer las peliculas: " + error)
+    }
   },
 };
 
