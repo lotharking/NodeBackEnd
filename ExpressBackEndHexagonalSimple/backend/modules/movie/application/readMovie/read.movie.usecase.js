@@ -10,6 +10,14 @@ class ReadMovie {
       throw new Error(error)
     }
   }
+  async getMoviesByNameUseCase(name) {
+    try {
+      const moviesData = await MovieSchemaAdapter.getMovieByName(name);
+      return moviesData;
+    } catch (error){
+      throw new Error(error)
+    }
+  }
 }
 
 module.exports = ReadMovie;

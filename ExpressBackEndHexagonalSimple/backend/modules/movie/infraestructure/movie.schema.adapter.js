@@ -20,6 +20,14 @@ const MovieSchemaAdapter = {
       throw new Error("Error al leer las peliculas: " + error)
     }
   },
+  getMovieByName: function (name) {
+    try {
+      const regex = new RegExp(name, 'i');
+      return MovieSchema.find({ name: regex });
+    } catch (error){
+      throw new Error("Error al leer las pelicula: "+name+ " con error: " + error)
+    }
+  },
 };
 
 module.exports = MovieSchemaAdapter;
